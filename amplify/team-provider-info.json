@@ -1,0 +1,28 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-gpt3bot-dev-212854-authRole",
+      "UnauthRoleArn": "arn:aws:iam::587308544323:role/amplify-gpt3bot-dev-212854-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::587308544323:role/amplify-gpt3bot-dev-212854-authRole",
+      "Region": "ap-northeast-1",
+      "DeploymentBucketName": "amplify-gpt3bot-dev-212854-deployment",
+      "UnauthRoleName": "amplify-gpt3bot-dev-212854-unauthRole",
+      "StackName": "amplify-gpt3bot-dev-212854",
+      "StackId": "arn:aws:cloudformation:ap-northeast-1:587308544323:stack/amplify-gpt3bot-dev-212854/25d2dfb0-ac63-11ed-aea5-0a5f32746591",
+      "AmplifyAppId": "d1czxcjz8q1jue"
+    },
+    "categories": {
+      "function": {
+        "lineChatGPTBotFunction": {
+          "deploymentBucketName": "amplify-gpt3bot-dev-212854-deployment",
+          "s3Key": "amplify-builds/lineChatGPTBotFunction-6367733233736f517a42-build.zip",
+          "secretsPathAmplifyAppId": "d1czxcjz8q1jue",
+          "baseSecretPath": "/amplify/d1czxcjz8q1jue/dev/AMPLIFY_lineChatGPTBotFunction_"
+        }
+      },
+      "api": {
+        "gpt3Bot": {}
+      }
+    }
+  }
+}

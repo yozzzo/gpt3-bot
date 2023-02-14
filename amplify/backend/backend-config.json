@@ -1,0 +1,59 @@
+{
+  "api": {
+    "gpt3Bot": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "lineChatGPTBotFunction"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    }
+  },
+  "function": {
+    "lineChatGPTBotFunction": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_lineChatGPTBotFunction_baseSecretPath": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "lineChatGPTBotFunction"
+        }
+      ]
+    },
+    "AMPLIFY_function_lineChatGPTBotFunction_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "lineChatGPTBotFunction"
+        }
+      ]
+    },
+    "AMPLIFY_function_lineChatGPTBotFunction_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "lineChatGPTBotFunction"
+        }
+      ]
+    },
+    "AMPLIFY_function_lineChatGPTBotFunction_secretsPathAmplifyAppId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "lineChatGPTBotFunction"
+        }
+      ]
+    }
+  }
+}
