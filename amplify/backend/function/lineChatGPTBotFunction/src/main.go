@@ -2,8 +2,7 @@ package main
 
 import (
 	"context"
-
-	"github.com/aws/aws-lambda-go/lambda"
+	"fmt"
 )
 
 type MyEvent struct {
@@ -23,5 +22,7 @@ func HandleRequest(ctx context.Context, name MyEvent) (APIGatewayProxyResponse, 
 }
 
 func main() {
-	lambda.Start(HandleRequest)
+	// lambda.Start(HandleRequest)
+	fmt.Println("起動")
+	FetchParameterStore("/amplify/d1czxcjz8q1jue/dev/AMPLIFY_lineChatGPTBotFunction_OPEN_AI_API_KEY")
 }

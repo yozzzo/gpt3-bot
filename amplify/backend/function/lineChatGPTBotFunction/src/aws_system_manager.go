@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"os"
 
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/session"
@@ -10,35 +9,25 @@ import (
 )
 
 const (
-	REGION string = "ap-northeast-1"
+	REGION  string = "ap-northeast-1"
+	PROFILE string = "amplify-gpt3-user"
 )
 
-func main() {
-	// parameterNameをパラメータストアから取得
-	parameterName string = "SamplePrameter"
-	res, err := fetchParameterStore(parameterName)
-	if err != nil {
-		fmt.Println(res, err)
-		os.Exit(0)
-	}
-
-	fmt.Println(res)
-}
-
 // パラメータストアから設定値取得
-func fetchParameterStore(param string) (string, error) {
+func FetchParameterStore(keyName string) (string, error) {
 
-	sess := session.Must(session.NewSession())
-	svc := ssm.New(
-		sess,
-		aws.NewConfig().WithRegion(REGION),
-	)
+	sess, _ := session.NewSessionWithOptions(session.Options{
+		Config:  aws.Config{Region: aws.String(REGION)},
+		Profile: PROFILE,
+	})
+	svc := ssm.New(sess)
 
 	res, err := svc.GetParameter(&ssm.GetParameterInput{
-		Name:           aws.String(param),
+		Name:           aws.String(keyName),
 		WithDecryption: aws.Bool(true),
 	})
 	if err != nil {
+		fmt.Println(err)
 		return "Fetch Error", err
 	}
 
