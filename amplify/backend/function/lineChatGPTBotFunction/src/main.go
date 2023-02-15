@@ -24,5 +24,12 @@ func HandleRequest(ctx context.Context, name MyEvent) (APIGatewayProxyResponse, 
 func main() {
 	// lambda.Start(HandleRequest)
 	fmt.Println("起動")
-	FetchParameterStore("/amplify/d1czxcjz8q1jue/dev/AMPLIFY_lineChatGPTBotFunction_OPEN_AI_API_KEY")
+	// PostOpenAi("美味しいカレーの作り方教えて。返答するときは必ず語尾に「ナン！」とつけてください")
+	PostLineMessage("Ue8d8652379d98fb101ec89c6110331aa", "aaaa")
+	// Lineからメッセージを受け取る
+	// var messageFromLine = "aaa"
+	// OpenAiに流す
+	// var aiMessage string = PostOpenAi(messageFromLine)
+	// Lineに返却する
+	// PostLineBot(aiMessage)
 }
