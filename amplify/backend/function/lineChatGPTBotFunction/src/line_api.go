@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	linebot "github.com/line/line-bot-sdk-go/linebot"
+	lineBot "github.com/line/line-bot-sdk-go/linebot"
 )
 
 // リクエストボディを受け取る構造体
@@ -28,12 +28,12 @@ func PostLineMessage(userId string, text string) {
 	var LINE_CHANNEL_SECRET, _ = FetchParameterStore("/amplify/d1czxcjz8q1jue/dev/AMPLIFY_lineChatGPTBotFunction_LINE_CHANNEL_SECRET")
 	var LINE_CHANNEL_ACCESS_TOKEN, _ = FetchParameterStore("/amplify/d1czxcjz8q1jue/dev/AMPLIFY_lineChatGPTBotFunction_LINE_CHANNEL_ACCESS_TOKEN")
 
-	bot, err := linebot.New(LINE_CHANNEL_SECRET, LINE_CHANNEL_ACCESS_TOKEN)
+	bot, err := lineBot.New(LINE_CHANNEL_SECRET, LINE_CHANNEL_ACCESS_TOKEN)
 	if err != nil {
 		fmt.Println(err)
 	}
 
-	if _, err := bot.PushMessage(userId, linebot.NewTextMessage(text)).Do(); err != nil {
+	if _, err := bot.PushMessage(userId, lineBot.NewTextMessage(text)).Do(); err != nil {
 		fmt.Println(err)
 	}
 	fmt.Println("line_api完了")
